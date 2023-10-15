@@ -11,9 +11,7 @@ object SurveillanceModel {
       Transaction(5, "2023-01-05", 1500, "Compra", "cliente Barragan")
     )
     // Identificar transacciones inusuales
-    val unusualTransactions = transactions.filter(_.monto > 1200) //--->  se conoce como una función lambda o función anónima.
-    //( _.) (recorre cada elemento)
-
+    val unusualTransactions = transactions.filter(_.monto > 1200) 
     // Registrar transacciones inusuales
     unusualTransactions.foreach { transaction =>
       println(s"Transacción inusual detectada: " +
@@ -23,15 +21,12 @@ object SurveillanceModel {
     }
   }
 }
-case class Transaction(id: Int, fecha: String, monto: Int, tipo: String, cliente: String) //---> nombre de las columnas
-// en orden
-
+case class Transaction(id: Int, fecha: String, monto: Int, tipo: String, cliente: String)
 
 //-----> Podemos agregar datos de una fuente externa usando spark y sus funciones
 // Apache Spark para cargar y procesar los datos de transacciones desde una fuente externa
 // (en este caso, un archivo CSV). Luego, aplicamos una serie de transformaciones a los datos
 // utilizando Spark SQL para identificar y seleccionar las transacciones con montos superiores a 2000.
-
 
 //import org.apache.spark.sql.{SparkSession, DataFrame}
 //import org.apache.spark.sql.functions._
